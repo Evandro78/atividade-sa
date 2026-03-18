@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberShield - Proteção Digital</title>
+
+  <!-- CSS Flask -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div class="login-container" id="login-container">
+    <div class="form-box">
+      <h1>CyberShield</h1>
+      <p class="subtitle">Sua defesa digital inteligente</p>
+      <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginPassword" placeholder="Senha" required>
+        <button type="submit">Entrar</button>
+        <p>Não tem conta? <a href="#" id="showRegister">Cadastre-se</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- CADASTRO -->
+  <div class="register-container" id="register-container" style="display:none;">
+    <div class="form-box">
+      <h1>Cadastro - CyberShield</h1>
+      <form id="registerForm">
+        <input type="text" id="registerName" placeholder="Nome completo" required>
+        <input type="email" id="registerEmail" placeholder="Email" required>
+        <input type="password" id="registerPassword" placeholder="Senha" required>
+        <button type="submit">Cadastrar</button>
+        <p>Já tem conta? <a href="#" id="showLogin">Faça login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header id="mainHeader" class="hidden">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="logo">
+      <h1>CyberShield</h1>
+    </div>
+
+    <nav>
+      <a href="#" class="nav-link" data-tab="home">Início</a>
+      <a href="#" class="nav-link" data-tab="protecao">Proteção</a>
+      <a href="#" class="nav-link" data-tab="backup">Backup</a>
+      <a href="#" class="nav-link" data-tab="recuperacao">Recuperação</a>
+      <a href="#" class="nav-link" data-tab="perfil">Perfil</a>
+      <button id="logoutBtn">Sair</button>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main id="content" class="hidden">
+
+    <section id="home" class="tab active">
+      <h2>Bem-vindo</h2>
+    </section>
+
+    <section id="protecao" class="tab">
+      <button id="scanBtn">Verificar</button>
+      <div id="scanResult"></div>
+    </section>
+
+    <section id="backup" class="tab">
+      <input type="file" id="backupFile">
+      <button id="backupBtn">Backup</button>
+      <div id="backupList"></div>
+    </section>
+
+    <section id="recuperacao" class="tab">
+      <select id="recoverSelect"></select>
+      <button id="recoverBtn">Restaurar</button>
+      <div id="recoverResult"></div>
+    </section>
+
+    <section id="perfil" class="tab">
+      <div id="profileData"></div>
+    </section>
+
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
